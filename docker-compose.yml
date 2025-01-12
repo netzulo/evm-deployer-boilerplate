@@ -1,0 +1,16 @@
+version: "3.9"
+name: ba-chains
+
+networks:
+  evm-deployer-boilerplate-network:
+    name: evm-deployer-boilerplate-network
+    driver: bridge
+
+services:
+  evm-deployer-boilerplate-l1:
+    container_name: evm-deployer-boilerplate-l1
+    restart: always
+    build: ./
+    ports:
+      - "9545:8545"
+    command: npm run chain:devnet --trace

@@ -1,0 +1,36 @@
+# OS X
+.DS_Store*
+Icon?
+._*
+
+node_modules
+.env
+package-lock.json
+coverage
+coverage.json
+typechain
+typechain-types
+
+#Hardhat files
+cache
+artifacts
+
+
+node_modules
+coverage
+coverage.json
+typechain
+typechain-types
+
+#Hardhat files
+cache
+artifacts
+
+.env
+./data/*/*
+./data/deployed.json
+.coverage/
+
+.openzeppelin/.session
+yarn.lock
+junit.xml
