@@ -12,6 +12,14 @@ async function main() {
       console.debug("[verifier]: NO-VERIFY, ", name, address)
       continue
     }
+    if(hre.network.name === "hardhat") {
+      console.debug(`[verifier]: SKIP-VERIFY, use another network name 
+        or add and object for chainID=1337 
+        at hardhat.config.js 
+        in key etherscan.customChains
+        for name=${name} address=${address}`)
+      continue
+    }
     try {
       await hre.run("verify:verify", {
         network: hre.network.name,

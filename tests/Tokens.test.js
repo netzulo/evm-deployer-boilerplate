@@ -16,6 +16,8 @@ describe("[UNIT] Tokens --> base contracts to implemented tokens standards", fun
   describe("class: UserCreditToken", function () {
     it("method: agentAdd", async function () {
       const { user, uct } = await loadFixture(deployFixture);
+      console.log("user.address", user.address);
+      console.log("uct.address", uct.address);
       const txn = await (await uct.agentAdd(user.address)).wait();
       assert.equal(txn.transactionHash.length, 66);
       assert.equal((await uct.agents(user.address)).active, true);

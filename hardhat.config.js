@@ -40,7 +40,7 @@ console.log(`[evm-deployer][3/3] secret loaded from ${envFileName}`);
 module.exports = {
   solidity: "0.8.9",
   paths: {
-    sources: "./src/contracts",
+    sources: "./contracts",
     tests: "./test",
     cache: "./.data/cache",
     artifacts: "./.data/artifacts",
@@ -57,7 +57,7 @@ module.exports = {
         { command: 'check', params: { } },
         { command: 'compile', params: { quiet: true } },
       ],
-      files: ['./src/contracts'],
+      files: ['./contracts'],
       verbose: true,
       clearOnStart: true,
       start: 'echo \"[evm-deployer] SmartContract watcher started/restarted\"',

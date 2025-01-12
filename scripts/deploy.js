@@ -12,7 +12,7 @@ const path = require("path")
 const getABI = (_path, _file) => {
   try {
     const dir = path.resolve(
-      __dirname,`../.data/artifacts/src/contracts/${_path}${_file}.sol/${_file}.json`)
+      __dirname,`../.data/artifacts/contracts/${_path}${_file}.sol/${_file}.json`)
     const file = fs.readFileSync(dir, "utf8")
     return (JSON.parse(file)).abi
   } catch (e) {
