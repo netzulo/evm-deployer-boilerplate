@@ -149,3 +149,17 @@ Join our community and stay updated on new features:
 - [Twitter](https://twitter.com/El_Wose)
 - [Discord](https://discord.gg/#comming-soon)
 - [GitHub](https://github.com/netzulo/evm-deployer-boilerplateue)
+
+## 💸 Donate
+
+If you find this project useful and would like to support its development, you can make a donation using **ETH** or **ARB** through **Arbitrum One** or **Polygon**.
+
+🪙 **Ethereum / Arbitrum Address**: `0xe3744590376c22B9D010d3CAfee796d5EbDBA9A8`
+
+To donate, simply send **ETH** or **ARB** from the **Polygon** network to the above address.
+
+You can send donations directly to the address using your preferred wallet or by clicking the button below:
+
+[![Donate with Ethereum or ARB](https://img.shields.io/badge/Donate%20with-Ethereum%20or%20ARB-6A4CFF?style=flat&logo=ethereum)](https://www.ethereum.org)
+
+Thank you for your support! 🙌
