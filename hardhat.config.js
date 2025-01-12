@@ -73,9 +73,27 @@ module.exports = {
   networks: {
     hardhat: {
       chainId: 1337,
+      accounts: [ 
+        {
+          privateKey: secret,
+          balance: ethers.utils.parseEther("1000000000").toString() 
+        }
+        // add more accounts here
+      ],
       mining: {
         auto: true,
+        interval: [1000, 4000], // comment to disable mining
       },
+    },
+    devnet: {
+      url: "http://localhost:8545",
+      chainId: 1337,
+      accounts: [secret],
+    },
+    docker: {
+      url: "http://localhost:9545",
+      chainId: 1337,
+      accounts: [secret],
     },
     ethereum: {
       url: `https://mainnet.infura.io/v3/`,
@@ -135,6 +153,7 @@ module.exports = {
   },
   etherscan: {
     apiKey: {
+      devnet: "YourApiKey",
       ethereum: "YourApiKey",
       goerli: "YourApiKey",
       polygon: "YourApiKey",
@@ -148,6 +167,14 @@ module.exports = {
       coinbase: "YourApiKey",
     },
     customChains: [
+      {
+        network: "devnet",
+        chainId: 1337,
+        urls: {
+          apiURL: "http://localhost:4000/api",
+          browserURL: "http://localhost:4000",
+        },
+      },
       {
         network: "ethereum",
         chainId: 1,

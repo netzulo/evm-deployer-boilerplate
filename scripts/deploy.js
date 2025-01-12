@@ -12,7 +12,7 @@ const path = require("path")
 const getABI = (_path, _file) => {
   try {
     const dir = path.resolve(
-      __dirname,`../.data/artifacts/contracts/${_path}${_file}.sol/${_file}.json`)
+      __dirname,`../.data/artifacts/src/contracts/${_path}${_file}.sol/${_file}.json`)
     const file = fs.readFileSync(dir, "utf8")
     return (JSON.parse(file)).abi
   } catch (e) {
@@ -21,26 +21,27 @@ const getABI = (_path, _file) => {
 }
 
 const getContracts = async () => {
+  const user = hre.ethers.Wallet.createRandom()
   const agents = [
-    {name: "agent-ia-pdf-manager", addr: "0xBcf34D7E4373fD419c1FF7fe1998A60CAB4f9664"},
+    {name: "agent-ia-pdf-manager", addr: user.address},
   ]
   const mac = await (await hre.ethers.getContractFactory("MAC")).deploy()
-  // const userCreditToken = await (await hre.ethers.getContractFactory("UserCreditToken")).deploy()
+  const uct = await (await hre.ethers.getContractFactory("UserCreditToken")).deploy()
 
   // Grant roles - backend
   for (const agent of agents) {
-    await mac.agentAdd(agent.addr)
-    await mac.agentAdd(agent.addr)
+    await uct.agentAdd(agent.addr)
     console.log(`[deploy] ${agent.name}: Grant as AGENT for backend=${agent.addr}`)
   }
   return {
+    // NOT NEED cause UserCreditToken implements MAC
     mac: {
-     // verify: 'contracts/permissions/MAC.sol:MAC',
+     verify: 'contracts/permissions/MAC.sol:MAC',
      address: mac.address, abi: await getABI('permissions/', 'MAC')
     },
     userCreditToken: {
      verify: 'contracts/tokens/UserCreditToken.sol:UserCreditToken',
-     address: userCreditToken.address, abi: await getABI('tokens/', 'UserCreditToken')
+     address: uct.address, abi: await getABI('tokens/', 'UserCreditToken')
     },
   }
 }

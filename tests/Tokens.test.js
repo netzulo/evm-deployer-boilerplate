@@ -31,7 +31,7 @@ describe("[UNIT] Tokens --> base contracts to implemented tokens standards", fun
     it("method: mint, regular user can't generate tokens", async function () {
       const { user, uct } = await loadFixture(deployFixture);
       await expect(uct.connect(user).mint(
-        user.address, 1)).to.be.revertedWith("Baac: caller is not an agent");
+        user.address, 1)).to.be.revertedWith("MAC: caller is not an agent");
       assert.equal(await uct.balanceOf(user.address), 0);
     });
     it("method: burn, regular user can destroy tokens", async function () {
