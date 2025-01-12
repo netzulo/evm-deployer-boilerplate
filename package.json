@@ -1,7 +1,7 @@
 {
   "name": "evm-deployer-boilerplate",
   "version": "0.0.1",
-  "description": "VM Deployer BoilerplateUE is a base project designed to simplify and accelerate the setup and deployment of virtual machines. This boilerplate includes predefined configurations and essential tools for managing deployments across various environments.",
+  "description": "VM Deployer BoilerplateUE is a base project designed to simplify and accelerate the setup and deployment of an EVM chains. This boilerplate includes predefined configurations and essential tools for managing deployments across various environments.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

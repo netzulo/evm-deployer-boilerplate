@@ -1,12 +1,12 @@
 # EVM Deployer Boilerplate 🚀
 
-Welcome to **VM Deployer BoilerplateUE**! This repository provides a base framework to help you easily deploy virtual machines across various platforms, utilizing automation, modular configurations, and integration with blockchain ecosystems for an enhanced deployment experience.
+Welcome to **VM Deployer BoilerplateUE**! This repository provides a base framework to help you easily deploy EVM across various platforms, utilizing automation, modular configurations, and integration with blockchain ecosystems for an enhanced deployment experience.
 
 ---
 
 ## 🌟 Features
 
-- **Modular & Customizable Setup**: Build your virtual machine deployments with ease and flexibility.
+- **Modular & Customizable Setup**: Build your EVM deployments with ease and flexibility.
 - **Automated Deployment Scripts**: Save time by deploying VMs with a single command.
 - **Cross-Platform Support**: Whether you're on AWS, Azure, Google Cloud, or self-hosted environments — this boilerplate works across platforms.
 - **Blockchain Integration**: Seamlessly integrate with blockchain networks like **Ethereum**, **Arbitrum**, and **Polygon** to add decentralized features to your VM deployments.
@@ -86,7 +86,7 @@ Before you begin, ensure you have met the following requirements:
 3. **Configure Your Environment**:
     Set up your cloud API keys and blockchain wallet addresses in the `.env` file for smooth integration with Ethereum or Arbitrum.
 
-4. **Deploy a Virtual Machine**:
+4. **Deploy to a EVM Chain**:
     Run the deployment script to initiate the VM setup process.
     ```bash
     yarn deploy
