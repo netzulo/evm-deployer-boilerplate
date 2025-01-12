@@ -1,5 +1,4 @@
-version: "3.9"
-name: ba-chains
+name: evm-deployer-boilerplate
 
 networks:
   evm-deployer-boilerplate-network:

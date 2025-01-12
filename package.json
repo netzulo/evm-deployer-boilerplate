@@ -12,17 +12,18 @@
     "url": "https://github.com/netzulo/evm-deployer-boilerplate/issues"
   },
   "homepage": "https://github.com/netzulo/evm-deployer-boilerplate#readme",
-  "main": "index.js",  
+  "main": "index.js",
   "scripts": {
     "clean:rm": "rm -rf .coverage .data artifacts node_modules coverage.json package-lock.json yarn.lock",
     "clean:hardhat": "npx hardhat clean",
     "clean": "yarn clean:rm",
+    "configure": "npx cp -r .env.example .env",
     "lint": "npx hardhat check",
     "dev": "yarn lint && npx hardhat watch compilation",
     "build": "npx hardhat compile",
     "test:sizer": "npx hardhat size-contracts --no-compile",
     "test": "npx hardhat coverage",
-    "ci": "yarn clean && yarn && yarn lint && yarn build && echo \"CI: OK\"",
+    "ci": "yarn clean && yarn && yarn configure && yarn lint && yarn test && yarn build && echo \"CI: OK\"",
     "ci:deploy": "yarn ci && yarn deploy",
     "ci:verify": "yarn ci && yarn verify",
     "chain:stress": "NODE_OPTIONS='--max-old-space-size=12288' npx hardhat run --network hardhat scripts/stress.js",
@@ -72,6 +73,7 @@
     "hardhat-deploy": "^0.11.22",
     "hardhat-watcher": "^2.5.0",
     "mocha-junit-reporter": "^2.2.1",
+    "npx": "^10.2.2",
     "solidity-coverage": "^0.8.2"
   }
 }
