@@ -1,6 +1,6 @@
 # EVM Deployer Boilerplate 🚀
 
-Welcome to **VM Deployer BoilerplateUE**! This repository provides a base framework to help you easily deploy EVM across various platforms, utilizing automation, modular configurations, and integration with blockchain ecosystems for an enhanced deployment experience.
+Welcome to **EVM Deployer Boilerplate**! This repository provides a base framework to help you easily deploy EVM across various platforms, utilizing automation, modular configurations, and integration with blockchain ecosystems for an enhanced deployment experience.
 
 ---
 
