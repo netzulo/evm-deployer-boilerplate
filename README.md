@@ -7,7 +7,7 @@ Welcome to **EVM Deployer Boilerplate**! This repository provides a base framewo
 ## 🌟 Features
 
 - **Modular & Customizable Setup**: Build your EVM deployments with ease and flexibility.
-- **Automated Deployment Scripts**: Save time by deploying VMs with a single command.
+- **Automated Deployment Scripts**: Save time by deploying Smart contracts with a single command.
 - **Cross-Platform Support**: Whether you're on AWS, Azure, Google Cloud, or self-hosted environments — this boilerplate works across platforms.
 - **Blockchain Integration**: Seamlessly integrate with blockchain networks like **Ethereum**, **Arbitrum**, and **Polygon** to add decentralized features to your VM deployments.
 - **Credibility**: Leverage blockchain for transparency, creating trust in the deployment process.
@@ -18,9 +18,9 @@ Welcome to **EVM Deployer Boilerplate**! This repository provides a base framewo
 
 The deployment process incorporates a *tokenized* system designed to enhance both the economic and credibility aspects:
 
-- **Tokenized Deployment**: Use your native token for deploying VMs, adding a layer of financial incentive and decentralization.
+- **Tokenized Deployment**: Use your native token for deploying Smart contracts, adding a layer of financial incentive and decentralization.
 - **Staking**: Users can stake tokens to ensure priority access and faster deployment times.
-- **Marketplace Integration**: Deploy VMs as part of a marketplace where users can trade VM instances or resources using **ERC-20** tokens.
+- **Marketplace Integration**: Deploy Smart contracts as part of a marketplace where users can trade EVM instances or resources using **ERC-20** tokens.
 - **Decentralized Finance (DeFi)**: Integrate VM deployment with DeFi protocols to create a decentralized infrastructure that is fully transparent and incentivized.
 
 💰 **How It Works**:
