@@ -8,13 +8,13 @@ require("hardhat-contract-sizer");
 
 const fs = require("fs");
 const { dirname } = require('path');
-console.log(`[evm-deployer][0/3] loading ${dirname(__filename)}`);
+console.log(`[hardhat-config][0/3] loading ${dirname(__filename)}`);
 // Data directory for persistent data
 if (!fs.existsSync(".data")) {
-  console.log('[evm-deployer] creating .data directory');
+  console.log('[hardhat-config] creating .data directory');
   fs.mkdirSync(".data");
 }
-console.log(`[evm-deployer][1/3] ready to use ${dirname(__filename)}/.data directory`);
+console.log(`[hardhat-config][1/3] ready to use ${dirname(__filename)}/.data directory`);
 
 const envFileName = ".env";
 let secret = null; 
@@ -29,19 +29,19 @@ if(!secret) {
   const w = ethers.Wallet.createRandom();
   secret = w.privateKey;
   fs.writeFileSync(envFileName, secret);
-  console.log(`[evm-deployer][2/3] created account : ${w.address}`);
+  console.log(`[hardhat-config][2/3] created account : ${w.address}`);
 } else {
   const w = new ethers.Wallet(secret);
-  console.log(`[evm-deployer][2/3] loaded account : ${w.address}`);
+  console.log(`[hardhat-config][2/3] loaded account : ${w.address}`);
 }
-console.log(`[evm-deployer][3/3] secret loaded from ${envFileName}`);
+console.log(`[hardhat-config][3/3] secret loaded from ${envFileName}`);
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity: "0.8.9",
   paths: {
     sources: "./contracts",
-    tests: "./test",
+    tests: "./tests",
     cache: "./.data/cache",
     artifacts: "./.data/artifacts",
   },
