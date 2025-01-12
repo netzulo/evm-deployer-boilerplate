@@ -11,7 +11,6 @@ describe("[UNIT] Tokens --> base contracts to implemented tokens standards", fun
     const [owner, user] = await ethers.getSigners();
     const mac = await (await ethers.getContractFactory("MAC")).deploy();
     const uct = await (await ethers.getContractFactory("UserCreditToken")).deploy();
-    // const auth = await (await ethers.getContractFactory("Auth")).deploy();
     return { owner, user, mac, uct, };
   }
   describe("class: UserCreditToken", function () {
