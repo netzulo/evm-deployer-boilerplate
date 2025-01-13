@@ -42,7 +42,7 @@ The deployment process incorporates a *smarts contracts* system designed to enha
 | # | Contract Name | Description |
 |---|---------------|-------------|
 | ✔️ | `MAC.sol`     | **Managed Access Control**: A contract that manages access control allowing external backend manage the contract. |
-| ✔️ | `UserCreditToken.sol` | **User Credit Token**: A token contract that provides credit for deployment transactions and use MAC permissions. |
+| ✔️ | `UserCreditToken.sol` | **User Credit Token**: An ERC-20 token contract that provides credit for deployment transactions and use MAC permissions. |
 
 
 💰 **How It Works**:
