@@ -139,16 +139,62 @@ The following table describes the available scripts in the `package.json` file a
 
 Replace `<network>` with the appropriate blockchain network, such as `ethereum`, `polygon`, `bsc`, `arbitrum`, `optimism`, `coinbase`, or others supported in the project.
 
+## 🐋 Docker
+
+Docker is a key component of this boilerplate, enabling you to create isolated environments for your EVM deployments. By using Docker, you can ensure consistency across different development and production environments.
+
+### Setting Up Docker
+
+1. **Build Docker Image**:
+    Navigate to the project directory and build the Docker image.
+    ```bash
+    docker build -t evm-deployer .
+    ```
+
+2. **Run Docker Container**:
+    Start a Docker container using the built image.
+    ```bash
+    docker run -it --rm --name evm-deployer-container evm-deployer
+    ```
+
+### Docker Compose
+
+For more complex setups, you can use Docker Compose to manage multi-container Docker applications.
+
+1. **Start Services**:
+    Use Docker Compose to start all required services.
+    ```bash
+    docker-compose -f docker-compose.yml up -d
+    ```
+
+2. **Stop Services**:
+    Stop the services when you are done.
+    ```bash
+    docker-compose -f docker-compose.yml down --rmi all
+    ```
+
+By leveraging Docker, you can streamline your development workflow and ensure that your EVM deployments are consistent and reproducible across different environments.
 
 ---
 
 ## 🪙 Supported Blockchains
 
-This boilerplate supports deployment on several blockchain networks, allowing for decentralized and tokenized interactions:
+This boilerplate supports deployment on the following blockchain networks:
 
-- **Ethereum** (ETH)
-- **Arbitrum** (Layer 2 scaling for Ethereum)
-- **Polygon** (Layer 2 solution for Ethereum scalability)
+- **Ethereum** (Mainnet)
+- **Goerli** (Ethereum Testnet)
+- **Polygon** (Mainnet)
+- **Mumbai** (Polygon Testnet)
+- **Binance Smart Chain (BSC)** (Mainnet)
+- **BSC Testnet**
+- **Arbitrum** (Mainnet)
+- **Arbitrum Goerli** (Testnet)
+- **Optimism** (Mainnet)
+- **Optimism Goerli** (Testnet)
+- **Coinbase** (Layer 2 solution by Coinbase)
+- **Devnet** (Local development network)
+- **Docker** (Local development via Docker)
+- **Hardhat** (Local testing environment)
 
 ---
 
