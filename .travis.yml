@@ -13,7 +13,7 @@ jobs:
     strategy:
       matrix:
         network: [hardhat]
-        solidity_version: [0.8.17, 0.8.18, 0.8.19]
+        solidity_version: [0.8.9, 0.8.10]
     runs-on: ubuntu-latest
 
     steps:
@@ -38,7 +38,7 @@ jobs:
         # copy hardhat.config.compiler-{version}.js to hardhat.config.js
         run: |
           echo "Using Solidity version ${{ matrix.solidity_version }}"
-          cp hardhat.config.compiler-${{ matrix.solidity_version }}.js hardhat.config.js
+          cp .travisci/hardhat.config.compiler-${{ matrix.solidity_version }}.js hardhat.config.js
 
       # Run build and test for the specified network and Solidity version
       - name: Run local CI process
