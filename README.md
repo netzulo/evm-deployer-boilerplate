@@ -6,11 +6,23 @@ Welcome to **EVM Deployer Boilerplate**! This repository provides a base framewo
 
 ## 🌟 Features
 
-- **Modular & Customizable Setup**: Build your EVM deployments with ease and flexibility.
-- **Automated Deployment Scripts**: Save time by deploying Smart contracts with a single command.
-- **Cross-Platform Support**: Whether you're on AWS, Azure, Google Cloud, or self-hosted environments — this boilerplate works across platforms.
-- **Blockchain Integration**: Seamlessly integrate with blockchain networks like **Ethereum**, **Arbitrum**, and **Polygon** to add decentralized features to your EVM deployments.
-- **Credibility**: Leverage blockchain for transparency, creating trust in the deployment process.
+- **Multi-Network Compatibility**:  Connect and deploy contracts seamlessly to major blockchain networks such as Ethereum, Arbitrum, Polygon, Binance Smart Chain, Optimism, and more. Includes support for test networks like Goerli and Mumbai for staging environments.
+
+- **Modular & Customizable Setup**: Easily configure contract paths, artifacts, and testing directories. The boilerplate is designed to adapt to various deployment needs and environments.
+
+- **Automated Deployment & Verification**: Save time with predefined scripts for deploying and verifying contracts on multiple networks using a single command.
+
+- **Real-Time Contract Monitoring**: Leverage the watcher feature to automatically detect changes in contracts and trigger recompilation, ensuring a smooth development workflow.
+
+- **Smart Contract Optimization**: Built-in Solidity optimizer and contract sizer ensure your contracts are efficient and fit within network size limits.
+
+- **Comprehensive Testing & Coverage**: Includes tools for writing robust tests and measuring code coverage, ensuring high-quality smart contracts.
+
+- **Preconfigured Accounts & Local Networks**: Local networks (`hardhat` and `devnet`) come with preloaded accounts and customizable mining settings for testing diverse scenarios.
+
+- **Blockchain Explorer Integration**: Verify your contracts directly on explorers like Etherscan, Polygonscan, and more, with support for custom chains and APIs.
+
+- **Cross-Platform Deployment**: This boilerplate is compatible with AWS, Azure, Google Cloud, and self-hosted environments, making it suitable for any infrastructure setup.
 
 ---
 
