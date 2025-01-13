@@ -247,7 +247,7 @@ If you find this project useful and would like to support its development, you c
 
 🪙 **Ethereum / Arbitrum Address**: `0xe3744590376c22B9D010d3CAfee796d5EbDBA9A8`
 
-To donate, simply send **ETH** or **ARB** from the **Polygon** network to the above address.
+To donate, simply send **ETH** from ethereum, or **ARB** from arbitrum  network to the above address.
 
 You can send donations directly to the address using your preferred wallet or by clicking the button below:
 
