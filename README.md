@@ -26,14 +26,19 @@ Welcome to **EVM Deployer Boilerplate**! This repository provides a base framewo
 
 ---
 
-## 💡 Economic Mechanics
+## 💡 Smart Contracts Examples
 
-The deployment process incorporates a *tokenized* system designed to enhance both the economic and credibility aspects:
+The deployment process incorporates a *smarts contracts* system designed to enhance both the economic and credibility aspects:
 
-- **Tokenized Deployment**: Use your native token for deploying Smart contracts, adding a layer of financial incentive and decentralization.
-- **Staking**: Users can stake tokens to ensure priority access and faster deployment times.
-- **Marketplace Integration**: Deploy Smart contracts as part of a marketplace where users can trade EVM instances or resources using **ERC-20** tokens.
-- **Decentralized Finance (DeFi)**: Integrate VM deployment with DeFi protocols to create a decentralized infrastructure that is fully transparent and incentivized.
+- [ ] **Lending & Borrowing Protocols**: Develop integrations for Smart contract deployment financing using decentralized lending.
+- [ ] **Decentralized Exchanges (DEXs)**: Facilitate the trade of tokens and resources within the ecosystem using built-in marketplace utilities.
+- [ ] **Yield Farming & Staking**: Enable users to earn rewards by staking tokens or providing liquidity for deployment transactions.
+- [ ] **Decentralized Insurance**: Offer protection for Smart contract deployments through tokenized insurance pools.
+- [ ] **Tokenized Governance**: Allow token holders to participate in governance decisions, including deployment prioritization or ecosystem upgrades.
+- [ ] **Asset Tokenization**: Tokenize deployment configurations or resources to trade as unique digital assets.
+- [ ] **Cross-Chain Solutions**: Implement interoperability for deployments across multiple blockchain networks.
+- [ ] **Play-to-Earn (P2E) Models**: Introduce gamified mechanics, allowing users to earn rewards for participating in deployment-related activities.
+
 
 💰 **How It Works**:
 
