@@ -1,4 +1,4 @@
-name: EVM Deployer Boilerplate
+name: EVM Deployer Boilerplate 
 
 on:
   push:
