@@ -39,6 +39,11 @@ The deployment process incorporates a *smarts contracts* system designed to enha
 - [ ] **Cross-Chain Solutions**: Implement interoperability for deployments across multiple blockchain networks.
 - [ ] **Play-to-Earn (P2E) Models**: Introduce gamified mechanics, allowing users to earn rewards for participating in deployment-related activities.
 
+| # | Contract Name | Description |
+|---|---------------|-------------|
+| ✔️ | `MAC.sol`     | **Managed Access Control**: A contract that manages access control allowing external backend manage the contract. |
+| ✔️ | `UserCreditToken.sol` | **User Credit Token**: A token contract that provides credit for deployment transactions and use MAC permissions. |
+
 
 💰 **How It Works**:
 
