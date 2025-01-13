@@ -95,13 +95,13 @@ Before you begin, ensure you have met the following requirements:
 
 1. **Clone the Repository**:
     ```bash
-    git clone https://github.com/netzulo/evm-deployer-boilerplateue.git
+    git clone https://github.com/netzulo/evm-deployer-boilerplate.git
     ```
 
 2. **Install Dependencies**:
     Navigate into the project directory and install the necessary dependencies.
     ```bash
-    cd evm-deployer-boilerplateue
+    cd evm-deployer-boilerplate
     yarn install
     ```
 
@@ -240,7 +240,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 Join our community and stay updated on new features:
 
 - [Twitter](https://twitter.com/El_Wose)
-- [GitHub](https://github.com/netzulo/evm-deployer-boilerplateue)
+- [GitHub](https://github.com/netzulo/evm-deployer-boilerplate)
 
 ## 💸 Donate
 
