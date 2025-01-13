@@ -2,7 +2,7 @@
   "author": "netzulo",
   "name": "evm-deployer-boilerplate",
   "version": "0.0.1",
-  "description": "EVM Deployer Boilerplate is a base project designed to simplify and accelerate the setup and deployment of an EVM chains. This boilerplate includes predefined configurations and essential tools for managing deployments across various environments.",
+  "description": "EVM Deployer Boilerplate is a base project designed to simplify and accelerate the setup and deployment of Smart contracts at EVM chains. This boilerplate includes predefined configurations and essential tools for managing deployments across various environments.",
   "license": "GPL-3.0",
   "repository": {
     "type": "git",
