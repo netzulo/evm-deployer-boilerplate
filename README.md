@@ -225,7 +225,6 @@ This boilerplate supports deployment on the following blockchain networks:
 - [Ethereum](https://ethereum.org)
 - [Arbitrum](https://arbitrum.io)
 - [Polygon](https://polygon.technology)
-- [DeFi Protocols on Ethereum](https://www.coindesk.com/defi)
 
 ---
 
