@@ -143,7 +143,7 @@ Replace `<network>` with the appropriate blockchain network, such as `ethereum`,
 
 Docker is a key component of this boilerplate, enabling you to create isolated environments for your EVM deployments. By using Docker, you can ensure consistency across different development and production environments.
 
-### Setting Up Docker
+###  With Docker CLI
 
 1. **Build Docker Image**:
     Navigate to the project directory and build the Docker image.
@@ -157,7 +157,7 @@ Docker is a key component of this boilerplate, enabling you to create isolated e
     docker run -it --rm --name evm-deployer-container evm-deployer
     ```
 
-### Docker Compose
+### With Docker Compose
 
 For more complex setups, you can use Docker Compose to manage multi-container Docker applications.
 
