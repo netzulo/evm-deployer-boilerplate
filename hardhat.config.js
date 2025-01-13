@@ -77,6 +77,11 @@ module.exports = {
         {
           privateKey: secret,
           balance: ethers.utils.parseEther("1000000000").toString() 
+        },
+        // accounts for unit tests
+        {
+          privateKey: "0x2bf6011310f0c63c6f0ebbd254678b1736807df05dd1b53c0fbfdee23ff0f5c7",
+          balance: ethers.utils.parseEther("1000").toString()
         }
         // add more accounts here
       ],

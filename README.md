@@ -9,7 +9,7 @@ Welcome to **EVM Deployer Boilerplate**! This repository provides a base framewo
 - **Modular & Customizable Setup**: Build your EVM deployments with ease and flexibility.
 - **Automated Deployment Scripts**: Save time by deploying Smart contracts with a single command.
 - **Cross-Platform Support**: Whether you're on AWS, Azure, Google Cloud, or self-hosted environments — this boilerplate works across platforms.
-- **Blockchain Integration**: Seamlessly integrate with blockchain networks like **Ethereum**, **Arbitrum**, and **Polygon** to add decentralized features to your VM deployments.
+- **Blockchain Integration**: Seamlessly integrate with blockchain networks like **Ethereum**, **Arbitrum**, and **Polygon** to add decentralized features to your EVM deployments.
 - **Credibility**: Leverage blockchain for transparency, creating trust in the deployment process.
 
 ---
@@ -171,7 +171,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 Join our community and stay updated on new features:
 
 - [Twitter](https://twitter.com/El_Wose)
-- [Discord](https://discord.gg/#comming-soon)
 - [GitHub](https://github.com/netzulo/evm-deployer-boilerplateue)
 
 ## 💸 Donate
