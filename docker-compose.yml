@@ -12,4 +12,4 @@ services:
     build: ./
     ports:
       - "9545:8545"
-    command: npm run chain:devnet --trace
+    command: yarn chain:devnet

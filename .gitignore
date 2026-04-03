@@ -27,10 +27,8 @@ cache
 artifacts
 
 .env
-./data/*/*
-./data/deployed.json
+.data/
 .coverage/
 
 .openzeppelin/.session
-yarn.lock
 junit.xml
