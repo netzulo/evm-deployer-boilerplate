@@ -1,14 +1,23 @@
 const {
-  time,
   loadFixture,
 } = require("@nomicfoundation/hardhat-network-helpers");
-const { anyValue } = require("@nomicfoundation/hardhat-chai-matchers/withArgs");
 const { expect, assert } = require("chai");
+const { ethers } = require("hardhat");
+
+async function createFundedWallet(owner) {
+  const wallet = ethers.Wallet.createRandom().connect(ethers.provider);
+  await (await owner.sendTransaction({
+    to: wallet.address,
+    value: ethers.utils.parseEther("10"),
+  })).wait();
+  return wallet;
+}
 
 
 describe("[UNIT] Tokens --> base contracts to implemented tokens standards", function () {
   async function deployFixture() {
-    const [owner, user] = await ethers.getSigners();
+    const [owner] = await ethers.getSigners();
+    const user = await createFundedWallet(owner);
     const mac = await (await ethers.getContractFactory("MAC")).deploy();
     const uct = await (await ethers.getContractFactory("UserCreditToken")).deploy();
     return { owner, user, mac, uct, };
@@ -16,8 +25,6 @@ describe("[UNIT] Tokens --> base contracts to implemented tokens standards", fun
   describe("class: UserCreditToken", function () {
     it("method: agentAdd", async function () {
       const { user, uct } = await loadFixture(deployFixture);
-      console.log("user.address", user.address);
-      console.log("uct.address", uct.address);
       const txn = await (await uct.agentAdd(user.address)).wait();
       assert.equal(txn.transactionHash.length, 66);
       assert.equal((await uct.agents(user.address)).active, true);

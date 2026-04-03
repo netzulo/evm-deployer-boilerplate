@@ -1,15 +1,23 @@
 const {
-  time,
   loadFixture,
 } = require("@nomicfoundation/hardhat-network-helpers");
-const { anyValue } = require("@nomicfoundation/hardhat-chai-matchers/withArgs");
 const { expect, assert } = require("chai");
 const { ethers } = require("hardhat");
+
+async function createFundedWallet(owner) {
+  const wallet = ethers.Wallet.createRandom().connect(ethers.provider);
+  await (await owner.sendTransaction({
+    to: wallet.address,
+    value: ethers.utils.parseEther("10"),
+  })).wait();
+  return wallet;
+}
 
 
 describe("[UNIT]: Permissions --> all permissions classes", function () {
   async function deployFixture() {
-    const [owner, user] = await ethers.getSigners();
+    const [owner] = await ethers.getSigners();
+    const user = await createFundedWallet(owner);
     const mac = await (await ethers.getContractFactory("MAC")).deploy();
     return { owner, user, mac, };
   }
@@ -23,8 +31,7 @@ describe("[UNIT]: Permissions --> all permissions classes", function () {
       const { mac, owner, user } = await loadFixture(deployFixture);
       await (await mac.agentAdd(user.address)).wait();
       await (await mac.agentDel(user.address)).wait();
-      //assert.equal(await mac.isAgent(user.address), true);
-      await expect(mac.connect(user.address).isAgent(owner.address)).to.be.revertedWith("MAC: caller is not an agent");
+      await expect(mac.connect(user).isAgent(owner.address)).to.be.revertedWith("MAC: caller is not an agent");
     });
     it("method: agentAdd", async function () {
       const { mac, user } = await loadFixture(deployFixture);

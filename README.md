@@ -1,77 +1,27 @@
-# EVM Deployer Boilerplate 🚀
+# EVM Deployer Boilerplate
 
-Welcome to **EVM Deployer Boilerplate**! This repository provides a base framework to help you easily deploy EVM across various platforms, utilizing automation, modular configurations, and integration with blockchain ecosystems for an enhanced deployment experience.
+Hardhat boilerplate for compiling, deploying, and testing Solidity contracts on local EVM networks and on preconfigured public RPC targets.
 
----
+## Current capabilities
 
-## 🌟 Features
+- Solidity `0.8.9` project with optimizer enabled and artifacts stored in `.data/`.
+- Local execution on `hardhat`, `devnet` at `127.0.0.1:8545`, and `docker` at `127.0.0.1:9545`.
+- Deploy and verify scripts for local networks plus preconfigured public-network entries.
+- Unit tests and external-RPC integration tests.
+- Contract size reporting and file watching.
+- Repository-specific AI instructions, skills, prompts, and operational docs.
 
-- **Multi-Network Compatibility**:  Connect and deploy contracts seamlessly to major blockchain networks such as Ethereum, Arbitrum, Polygon, Binance Smart Chain, Optimism, and more. Includes support for test networks like Goerli and Mumbai for staging environments.
+## Included contracts
 
-- **Modular & Customizable Setup**: Easily configure contract paths, artifacts, and testing directories. The boilerplate is designed to adapt to various deployment needs and environments.
+| Contract | Purpose |
+|----------|---------|
+| `contracts/permissions/MAC.sol` | Managed access control with an agent model built on OpenZeppelin `AccessControl`. |
+| `contracts/tokens/UserCreditToken.sol` | ERC-20 token that inherits `MAC` and grants mint and pause capabilities to agents. |
+| `contracts/eips/*.sol` | Example ERC contracts kept as references and experimentation fixtures. |
 
-- **Automated Deployment & Verification**: Save time with predefined scripts for deploying and verifying contracts on multiple networks using a single command.
+## Scope note
 
-- **Real-Time Contract Monitoring**: Leverage the watcher feature to automatically detect changes in contracts and trigger recompilation, ensuring a smooth development workflow.
-
-- **Smart Contract Optimization**: Built-in Solidity optimizer and contract sizer ensure your contracts are efficient and fit within network size limits.
-
-- **Comprehensive Testing & Coverage**: Includes tools for writing robust tests and measuring code coverage, ensuring high-quality smart contracts.
-
-- **Preconfigured Accounts & Local Networks**: Local networks (`hardhat` and `devnet`) come with preloaded accounts and customizable mining settings for testing diverse scenarios.
-
-- **Blockchain Explorer Integration**: Verify your contracts directly on explorers like Etherscan, Polygonscan, and more, with support for custom chains and APIs.
-
-- **Cross-Platform Deployment**: This boilerplate is compatible with AWS, Azure, Google Cloud, and self-hosted environments, making it suitable for any infrastructure setup.
-
----
-
-## 💡 Smart Contracts Examples
-
-The deployment process incorporates a *smarts contracts* system designed to enhance both the economic and credibility aspects:
-
-- [ ] **Lending & Borrowing Protocols**: Develop integrations for Smart contract deployment financing using decentralized lending.
-- [ ] **Decentralized Exchanges (DEXs)**: Facilitate the trade of tokens and resources within the ecosystem using built-in marketplace utilities.
-- [ ] **Yield Farming & Staking**: Enable users to earn rewards by staking tokens or providing liquidity for deployment transactions.
-- [ ] **Decentralized Insurance**: Offer protection for Smart contract deployments through tokenized insurance pools.
-- [ ] **Tokenized Governance**: Allow token holders to participate in governance decisions, including deployment prioritization or ecosystem upgrades.
-- [ ] **Asset Tokenization**: Tokenize deployment configurations or resources to trade as unique digital assets.
-- [ ] **Cross-Chain Solutions**: Implement interoperability for deployments across multiple blockchain networks.
-- [ ] **Play-to-Earn (P2E) Models**: Introduce gamified mechanics, allowing users to earn rewards for participating in deployment-related activities.
-
-| # | Contract Name | Description |
-|---|---------------|-------------|
-| ✔️ | `MAC.sol`     | **Managed Access Control**: A contract that manages access control allowing external backend manage the contract. |
-| ✔️ | `UserCreditToken.sol` | **User Credit Token**: An ERC-20 token contract that provides credit for deployment transactions and use MAC permissions. |
-
-
-💰 **How It Works**:
-
-- Deployments can be made using **ETH** or your own project’s **token** (on networks like **Ethereum**, **Arbitrum**, or **Polygon**).
-- Staking or paying with tokens grants access to premium services, including faster processing and additional features.
-- Fees are paid directly to smart contracts, ensuring transparency and security.
-- Need a fully functional Layer 1 blockchain? You can easily set up your own **Proof of Stake (PoS) Devnet** using Docker by following this [guide](https://rauljordan.com/how-to-setup-a-proof-of-stake-devnet/), enabling you to run your own blockchain network for VM deployments.
-
-
----
-
-## 📈 Credibility Mechanisms
-
-We believe in *trust through transparency*. By integrating blockchain technology, we ensure that every VM deployment and resource usage is publicly verifiable on-chain.
-
-- **Smart Contracts**: Every transaction, from deployment to staking, is managed through transparent smart contracts on **Ethereum** or **Arbitrum**.
-- **Decentralization**: A decentralized VM network ensures that no single entity controls the deployment process — ensuring fairness and reliability.
-- **NFT Certificates**: Each successful deployment creates a verifiable **NFT** certificate, showing that the deployment was made in a secure and trustworthy manner.
-
----
-
-## 🔗 Technologies Used
-
-- **Blockchain Integration**: Ethereum, Arbitrum, Polygon (ERC-20 tokens, DeFi, and NFTs)
-- **Cloud Platforms**: AWS, Azure, Google Cloud
-- **Virtualization**: Docker, VMware, VirtualBox
-- **Automation**: Docker compose, Bash Scripts, Yarn
-- **Smart Contracts**: Solidity, Hardhat
+The repository includes network presets for public chains, but public deployments still require real RPC credentials, funded accounts, and explorer API keys. Local verification on `hardhat`, `devnet`, and `docker` is implemented as dry-run validation against deployed bytecode rather than explorer publication.
 
 ---
 
@@ -106,13 +56,29 @@ Before you begin, ensure you have met the following requirements:
     ```
 
 3. **Configure Your Environment**:
-    Set up your cloud API keys and blockchain wallet addresses in the `.env` file for smooth integration with Ethereum or Arbitrum.
+    Set up your private key and optional local RPC overrides in `.env`.
 
 4. **Deploy to a EVM Chain**:
     Run the deployment script to initiate the VM setup process.
     ```bash
     yarn deploy
     ```
+
+5. **Run the validated local workflow**:
+    ```bash
+    yarn lint
+    yarn build
+    yarn test:unit
+    yarn test:integration:devnet
+    yarn test:integration:docker
+    ```
+
+6. **Use the local knowledge base**:
+    Detailed operational guidance lives in `docs/`.
+    Start with:
+    - `docs/README.md`
+    - `docs/local-development.md`
+    - `docs/testing.md`
 
 ---
 
@@ -147,6 +113,10 @@ The following table describes the available scripts in the `package.json` file a
 | `lint`                | Runs Hardhat's static checks to ensure the code is properly formatted and error-free.               |
 | `dev`                 | Runs `lint` and starts Hardhat's compilation watcher for continuous development.                    |
 | `build`               | Compiles the project using Hardhat.                                                                 |
+| `test:unit`           | Runs the unit tests on the in-process Hardhat network.                                              |
+| `test:integration`    | Runs the integration suite against an already running `devnet` RPC on port `8545`.                  |
+| `test:integration:devnet` | Starts a local Hardhat node, waits for the RPC, runs integration tests, and stops the node.    |
+| `test:integration:docker` | Builds, starts Docker Compose, waits for the RPC, runs integration tests, and tears the stack down. |
 | `test:sizer`          | Measures the size of deployed contracts using Hardhat.                                              |
 | `test`                | Runs the test suite with code coverage enabled.                                                     |
 | `ci`                  | Cleans the project, installs dependencies, checks the code, and compiles it for CI pipelines.       |
@@ -155,8 +125,10 @@ The following table describes the available scripts in the `package.json` file a
 | `chain:stress`        | Runs a stress test script on the local Hardhat network.                                             |
 | `deploy`              | Deploys the smart contracts to the configured network.                                              |
 | `deploy:<network>`    | Deploys the smart contracts to the specified network (e.g., `ethereum`, `polygon`, `optimism`, etc.).|
+| `deploy:docker`       | Deploys contracts to the Docker-exposed local RPC on port `9545`.                                  |
 | `chain:devnet`        | Starts a local Hardhat development network.                                                         |
 | `verify`              | Verifies deployed contracts on the configured network.                                              |
+| `verify:docker`       | Validates local deployments on the Docker RPC and writes a verification report.                     |
 | `verify:<network>`    | Verifies deployed contracts on the specified network (e.g., `ethereum`, `polygon`, `arbitrum`, etc.).|
 
 Replace `<network>` with the appropriate blockchain network, such as `ethereum`, `polygon`, `bsc`, `arbitrum`, `optimism`, `coinbase`, or others supported in the project.
@@ -186,13 +158,18 @@ For more complex setups, you can use Docker Compose to manage multi-container Do
 1. **Start Services**:
     Use Docker Compose to start all required services.
     ```bash
-    docker-compose -f docker-compose.yml up -d
+    docker compose up -d --build
     ```
 
 2. **Stop Services**:
     Stop the services when you are done.
     ```bash
-    docker-compose -f docker-compose.yml down --rmi all
+    docker compose down --remove-orphans
+    ```
+
+3. **Run integration tests against the local RPC**:
+    ```bash
+    yarn test:integration:docker
     ```
 
 By leveraging Docker, you can streamline your development workflow and ensure that your EVM deployments are consistent and reproducible across different environments.
@@ -201,7 +178,7 @@ By leveraging Docker, you can streamline your development workflow and ensure th
 
 ## 🪙 Supported Blockchains
 
-This boilerplate supports deployment on the following blockchain networks:
+This boilerplate includes configuration entries for the following blockchain networks:
 
 - **Ethereum** (Mainnet)
 - **Goerli** (Ethereum Testnet)
@@ -217,6 +194,8 @@ This boilerplate supports deployment on the following blockchain networks:
 - **Devnet** (Local development network)
 - **Docker** (Local development via Docker)
 - **Hardhat** (Local testing environment)
+
+Public-network use still requires valid RPC credentials and, for explorer verification, the corresponding API keys.
 
 ---
 

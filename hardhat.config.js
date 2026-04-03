@@ -8,6 +8,9 @@ require("hardhat-contract-sizer");
 
 const fs = require("fs");
 const { dirname } = require('path');
+
+const DEFAULT_DEVNET_RPC_URL = "http://127.0.0.1:8545";
+const DEFAULT_DOCKER_RPC_URL = "http://127.0.0.1:9545";
 console.log(`[hardhat-config][0/3] loading ${dirname(__filename)}`);
 // Data directory for persistent data
 if (!fs.existsSync(".data")) {
@@ -17,9 +20,44 @@ if (!fs.existsSync(".data")) {
 console.log(`[hardhat-config][1/3] ready to use ${dirname(__filename)}/.data directory`);
 
 const envFileName = ".env";
-let secret = null; 
+const loadEnvFile = (fileName) => {
+  try {
+    const raw = fs.readFileSync(fileName, "utf8").trim();
+    if (!raw) {
+      return {};
+    }
+
+    if (raw.startsWith("0x") && !raw.includes("\n") && !raw.includes("=")) {
+      return { PRIVATE_KEY: raw };
+    }
+
+    return raw.split(/\r?\n/).reduce((acc, line) => {
+      const trimmed = line.trim();
+      if (!trimmed || trimmed.startsWith("#")) {
+        return acc;
+      }
+
+      const separatorIndex = trimmed.indexOf("=");
+      if (separatorIndex === -1) {
+        return acc;
+      }
+
+      const key = trimmed.slice(0, separatorIndex).trim();
+      const value = trimmed.slice(separatorIndex + 1).trim();
+      if (key) {
+        acc[key] = value;
+      }
+      return acc;
+    }, {});
+  } catch (error) {
+    return {};
+  }
+};
+
+const envValues = loadEnvFile(envFileName);
+let secret = process.env.PRIVATE_KEY || envValues.PRIVATE_KEY || null;
 try {
-  secret = fs.readFileSync(envFileName).toString().trim();
+  secret = secret || fs.readFileSync(envFileName).toString().trim();
 } catch (e) {
   // ignore, next step will create it
 }
@@ -28,7 +66,15 @@ if(!secret) {
   // create with ethers
   const w = ethers.Wallet.createRandom();
   secret = w.privateKey;
-  fs.writeFileSync(envFileName, secret);
+  fs.writeFileSync(
+    envFileName,
+    [
+      `PRIVATE_KEY=${secret}`,
+      `DEVNET_RPC_URL=${DEFAULT_DEVNET_RPC_URL}`,
+      `DOCKER_RPC_URL=${DEFAULT_DOCKER_RPC_URL}`,
+      "",
+    ].join("\n")
+  );
   console.log(`[hardhat-config][2/3] created account : ${w.address}`);
 } else {
   const w = new ethers.Wallet(secret);
@@ -36,19 +82,25 @@ if(!secret) {
 }
 console.log(`[hardhat-config][3/3] secret loaded from ${envFileName}`);
 
+const devnetRpcUrl = process.env.DEVNET_RPC_URL || envValues.DEVNET_RPC_URL || DEFAULT_DEVNET_RPC_URL;
+const dockerRpcUrl = process.env.DOCKER_RPC_URL || envValues.DOCKER_RPC_URL || DEFAULT_DOCKER_RPC_URL;
+
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
-  solidity: "0.8.9",
+  solidity: {
+    version: "0.8.9",
+    settings: {
+      optimizer: {
+        enabled: true,
+        runs: 200,
+      },
+    },
+  },
   paths: {
     sources: "./contracts",
     tests: "./tests",
     cache: "./.data/cache",
     artifacts: "./.data/artifacts",
-  },
-  settings: {
-    optimizer: {
-      enabled: true, runs: 200,
-    },
   },
   watcher: {
     compilation: {
@@ -91,12 +143,12 @@ module.exports = {
       },
     },
     devnet: {
-      url: "http://localhost:8545",
+      url: devnetRpcUrl,
       chainId: 1337,
       accounts: [secret],
     },
     docker: {
-      url: "http://localhost:9545",
+      url: dockerRpcUrl,
       chainId: 1337,
       accounts: [secret],
     },
