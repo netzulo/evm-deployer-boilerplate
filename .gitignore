@@ -31,5 +31,4 @@ artifacts
 .coverage/
 
 .openzeppelin/.session
-yarn.lock
 junit.xml
